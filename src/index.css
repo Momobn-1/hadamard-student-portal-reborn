@@ -3,96 +3,87 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+/* Hadamard Design System - Charte Graphique Moderne */
 
 @layer base {
   :root {
-    --background: 250 250 251;
-    --foreground: 15 23 42;
+    --background: 255 255 255;
+    --foreground: 36 30 92;
 
     --card: 255 255 255;
-    --card-foreground: 15 23 42;
+    --card-foreground: 36 30 92;
 
     --popover: 255 255 255;
-    --popover-foreground: 15 23 42;
+    --popover-foreground: 36 30 92;
 
-    --primary: 59 130 246;
+    --primary: 36 30 92;
     --primary-foreground: 255 255 255;
 
-    --secondary: 241 245 249;
-    --secondary-foreground: 51 65 85;
+    --secondary: 255 227 79;
+    --secondary-foreground: 36 30 92;
 
-    --muted: 248 250 252;
-    --muted-foreground: 100 116 139;
+    --muted: 248 249 250;
+    --muted-foreground: 108 117 125;
 
-    --accent: 241 245 249;
-    --accent-foreground: 51 65 85;
+    --accent: 255 227 79;
+    --accent-foreground: 36 30 92;
 
     --destructive: 239 68 68;
     --destructive-foreground: 255 255 255;
 
-    --border: 226 232 240;
-    --input: 226 232 240;
-    --ring: 59 130 246;
+    --border: 229 231 235;
+    --input: 229 231 235;
+    --ring: 36 30 92;
 
-    --radius: 0.5rem;
+    --radius: 12px;
 
-    --sidebar-background: 255 255 255;
-    --sidebar-foreground: 51 65 85;
-    --sidebar-primary: 59 130 246;
-    --sidebar-primary-foreground: 255 255 255;
-    --sidebar-accent: 241 245 249;
-    --sidebar-accent-foreground: 51 65 85;
-    --sidebar-border: 226 232 240;
-    --sidebar-ring: 59 130 246;
+    /* Hadamard Specific Colors */
+    --hadamard-primary: 36 30 92;        /* Bleu foncé #241e5c */
+    --hadamard-secondary: 255 227 79;    /* Jaune vif #ffe34f */
+    --hadamard-white: 255 255 255;       /* Blanc pur #ffffff */
+    --hadamard-gray-light: 248 249 250;  /* Gris clair #f8f9fa */
+    --hadamard-gray: 108 117 125;        /* Gris texte #6c757d */
+    
+    /* Services Colors */
+    --hadamard-cours: 36 30 92;          /* Cours particuliers - Bleu */
+    --hadamard-stages: 255 227 79;       /* Stages - Jaune */
+    --hadamard-ruche: 16 185 129;        /* Ruche - Vert émeraude */
 
-    /* Custom Hadamard colors */
-    --hadamard-blue: 37 99 235;
-    --hadamard-light-blue: 147 197 253;
-    --hadamard-green: 34 197 94;
-    --hadamard-orange: 249 115 22;
-    --hadamard-purple: 147 51 234;
-    --hadamard-red: 239 68 68;
-    --hadamard-yellow: 251 191 36;
+    /* Shadows */
+    --shadow-modern: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    --sidebar-background: 36 30 92;
+    --sidebar-foreground: 255 255 255;
+    --sidebar-primary: 255 227 79;
+    --sidebar-primary-foreground: 36 30 92;
+    --sidebar-accent: rgba(255, 227, 79, 0.1);
+    --sidebar-accent-foreground: 255 255 255;
+    --sidebar-border: rgba(255, 255, 255, 0.1);
+    --sidebar-ring: 255 227 79;
   }
 
   .dark {
     --background: 2 6 23;
     --foreground: 248 250 252;
-
     --card: 3 7 25;
     --card-foreground: 248 250 252;
-
     --popover: 3 7 25;
     --popover-foreground: 248 250 252;
-
-    --primary: 59 130 246;
+    --primary: 36 30 92;
     --primary-foreground: 255 255 255;
-
-    --secondary: 30 41 59;
-    --secondary-foreground: 203 213 225;
-
+    --secondary: 255 227 79;
+    --secondary-foreground: 36 30 92;
     --muted: 15 23 42;
     --muted-foreground: 148 163 184;
-
-    --accent: 30 41 59;
-    --accent-foreground: 203 213 225;
-
+    --accent: 255 227 79;
+    --accent-foreground: 36 30 92;
     --destructive: 220 38 38;
     --destructive-foreground: 248 250 252;
-
     --border: 30 41 59;
     --input: 30 41 59;
-    --ring: 59 130 246;
-
-    --sidebar-background: 3 7 25;
-    --sidebar-foreground: 203 213 225;
-    --sidebar-primary: 59 130 246;
-    --sidebar-primary-foreground: 255 255 255;
-    --sidebar-accent: 30 41 59;
-    --sidebar-accent-foreground: 203 213 225;
-    --sidebar-border: 30 41 59;
-    --sidebar-ring: 59 130 246;
+    --ring: 255 227 79;
   }
 }
 
@@ -102,57 +93,140 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-foreground font-sans;
+  }
+}
+
+/* Hadamard Modern Components */
+@layer components {
+  /* Modern Cards */
+  .hadamard-card {
+    @apply bg-white rounded-xl border border-gray-200 transition-all duration-200;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .hadamard-card:hover {
+    box-shadow: var(--shadow-hover);
+    @apply -translate-y-1;
+  }
+
+  /* Button Hierarchy */
+  .btn-hadamard-primary {
+    @apply bg-hadamard-secondary text-hadamard-primary font-semibold px-6 py-3 rounded-lg;
+    box-shadow: var(--shadow-modern);
+    @apply hover:bg-yellow-300 active:bg-yellow-400 transition-all duration-200;
+  }
+  
+  .btn-hadamard-secondary {
+    @apply bg-white border-2 border-hadamard-primary text-hadamard-primary font-semibold px-6 py-3 rounded-lg;
+    @apply hover:bg-blue-50 active:bg-blue-100 transition-all duration-200;
+  }
+  
+  .btn-hadamard-urgent {
+    @apply bg-hadamard-primary text-white font-semibold px-6 py-3 rounded-lg;
+    box-shadow: var(--shadow-modern);
+    @apply hover:bg-blue-800 active:bg-blue-900 transition-all duration-200;
+  }
+
+  /* Service Type Cards */
+  .cours-card {
+    @apply bg-hadamard-primary text-white;
+  }
+  
+  .stages-card {
+    @apply bg-hadamard-secondary text-hadamard-primary;
+  }
+  
+  .ruche-card {
+    @apply bg-hadamard-ruche text-white;
+  }
+
+  /* Modern Layout */
+  .hadamard-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .hadamard-grid {
+    @apply grid gap-6;
   }
 }
 
 /* Custom utility classes */
 @layer utilities {
-  .text-hadamard-blue {
-    color: hsl(var(--hadamard-blue));
+  /* Hadamard Colors */
+  .text-hadamard-primary {
+    color: hsl(var(--hadamard-primary));
   }
   
-  .bg-hadamard-blue {
-    background-color: hsl(var(--hadamard-blue));
+  .bg-hadamard-primary {
+    background-color: hsl(var(--hadamard-primary));
   }
   
-  .text-hadamard-green {
-    color: hsl(var(--hadamard-green));
+  .text-hadamard-secondary {
+    color: hsl(var(--hadamard-secondary));
   }
   
-  .bg-hadamard-green {
-    background-color: hsl(var(--hadamard-green));
+  .bg-hadamard-secondary {
+    background-color: hsl(var(--hadamard-secondary));
   }
   
-  .text-hadamard-orange {
-    color: hsl(var(--hadamard-orange));
+  .text-hadamard-white {
+    color: hsl(var(--hadamard-white));
   }
   
-  .bg-hadamard-orange {
-    background-color: hsl(var(--hadamard-orange));
+  .bg-hadamard-white {
+    background-color: hsl(var(--hadamard-white));
   }
   
-  .text-hadamard-purple {
-    color: hsl(var(--hadamard-purple));
+  .text-hadamard-gray {
+    color: hsl(var(--hadamard-gray));
   }
   
-  .bg-hadamard-purple {
-    background-color: hsl(var(--hadamard-purple));
+  .bg-hadamard-gray-light {
+    background-color: hsl(var(--hadamard-gray-light));
+  }
+
+  /* Service Colors */
+  .text-hadamard-cours {
+    color: hsl(var(--hadamard-cours));
   }
   
-  .text-hadamard-red {
-    color: hsl(var(--hadamard-red));
+  .bg-hadamard-cours {
+    background-color: hsl(var(--hadamard-cours));
   }
   
-  .bg-hadamard-red {
-    background-color: hsl(var(--hadamard-red));
+  .text-hadamard-stages {
+    color: hsl(var(--hadamard-stages));
   }
   
-  .text-hadamard-yellow {
-    color: hsl(var(--hadamard-yellow));
+  .bg-hadamard-stages {
+    background-color: hsl(var(--hadamard-stages));
   }
   
-  .bg-hadamard-yellow {
-    background-color: hsl(var(--hadamard-yellow));
+  .text-hadamard-ruche {
+    color: hsl(var(--hadamard-ruche));
   }
+  
+  .bg-hadamard-ruche {
+    background-color: hsl(var(--hadamard-ruche));
+  }
+
+  /* Modern Shadows */
+  .shadow-hadamard {
+    box-shadow: var(--shadow-modern);
+  }
+  
+  .shadow-hadamard-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-hadamard-hover {
+    box-shadow: var(--shadow-hover);
+  }
+
+  /* Spacing System */
+  .spacing-hadamard-xs { @apply p-2; }
+  .spacing-hadamard-sm { @apply p-4; }
+  .spacing-hadamard-md { @apply p-6; }
+  .spacing-hadamard-lg { @apply p-8; }
 }
