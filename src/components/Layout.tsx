@@ -22,18 +22,18 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-hadamard-white">
-      {/* Header Moderne - Bleu foncé avec accents jaunes */}
-      <header className="bg-hadamard-primary shadow-hadamard border-b border-hadamard-primary/20">
+    <div className="min-h-screen bg-white">
+      {/* Header Moderne - Fond blanc */}
+      <header className="bg-white border-b border-gray-100">
         <div className="hadamard-container">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-hadamard-secondary rounded-xl flex items-center justify-center shadow-hadamard">
+                <div className="w-10 h-10 bg-hadamard-secondary rounded-xl flex items-center justify-center">
                   <span className="text-hadamard-primary font-bold text-lg">H</span>
                 </div>
                 <div>
-                  <span className="text-2xl font-bold text-hadamard-white">Hadamard</span>
+                  <span className="text-2xl font-bold text-hadamard-primary">Hadamard</span>
                   <span className="text-sm text-hadamard-secondary block leading-none">Portail Élève</span>
                 </div>
               </div>
@@ -43,7 +43,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="bg-hadamard-white/10 border-hadamard-secondary text-hadamard-white hover:bg-hadamard-secondary hover:text-hadamard-primary transition-all duration-200"
+                className="border-hadamard-primary text-hadamard-primary hover:bg-hadamard-primary hover:text-white transition-all duration-200"
               >
                 <Phone className="w-4 h-4 mr-2" />
                 <span className="hidden sm:inline">01 47 89 36 36</span>
@@ -53,8 +53,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   <User className="w-5 h-5 text-hadamard-primary" />
                 </div>
                 <div className="hidden sm:block">
-                  <span className="text-sm font-semibold text-hadamard-white block">Alexandre Martin</span>
-                  <span className="text-xs text-hadamard-secondary">Élève</span>
+                  <span className="text-sm font-semibold text-hadamard-primary block">Alexandre Martin</span>
+                  <span className="text-xs text-hadamard-gray">Élève</span>
                 </div>
               </div>
             </div>
@@ -62,10 +62,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
       </header>
 
-      {/* Navigation Moderne avec sidebar */}
+      {/* Navigation Moderne avec sidebar - Fond blanc */}
       <div className="flex">
         {/* Sidebar */}
-        <nav className="w-64 bg-hadamard-primary min-h-screen shadow-hadamard-hover">
+        <nav className="w-64 bg-white min-h-screen border-r border-gray-100">
           <div className="p-6">
             <div className="space-y-2">
               {menuItems.map((item) => {
@@ -79,19 +79,19 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     className={cn(
                       "flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 group",
                       isActive
-                        ? "bg-hadamard-secondary text-hadamard-primary shadow-hadamard"
-                        : "text-hadamard-white hover:bg-hadamard-white/10 hover:text-hadamard-secondary"
+                        ? "bg-hadamard-secondary text-hadamard-primary"
+                        : "text-hadamard-primary hover:bg-gray-50"
                     )}
                   >
                     <Icon className={cn(
                       "w-5 h-5 transition-transform duration-200",
-                      isActive ? "text-hadamard-primary" : "text-hadamard-secondary group-hover:scale-110"
+                      isActive ? "text-hadamard-primary" : "text-hadamard-gray group-hover:text-hadamard-primary group-hover:scale-110"
                     )} />
                     <div>
                       <span className="block">{item.label}</span>
                       <span className={cn(
                         "text-xs opacity-75",
-                        isActive ? "text-hadamard-primary/70" : "text-hadamard-white/60"
+                        isActive ? "text-hadamard-primary/70" : "text-hadamard-gray"
                       )}>{item.description}</span>
                     </div>
                   </Link>
@@ -100,8 +100,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
 
             {/* Actions rapides dans la sidebar */}
-            <div className="mt-8 pt-6 border-t border-hadamard-white/20">
-              <h3 className="text-xs font-semibold text-hadamard-secondary uppercase tracking-wider mb-3">
+            <div className="mt-8 pt-6 border-t border-gray-100">
+              <h3 className="text-xs font-semibold text-hadamard-gray uppercase tracking-wider mb-3">
                 Actions rapides
               </h3>
               <div className="space-y-2">
@@ -114,7 +114,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </Button>
                 <Button 
                   variant="outline"
-                  className="w-full bg-hadamard-white/10 border-hadamard-white/20 text-hadamard-white hover:bg-hadamard-white/20 text-sm justify-start"
+                  className="w-full border-hadamard-primary text-hadamard-primary hover:bg-hadamard-primary hover:text-white text-sm justify-start"
                   size="sm"
                 >
                   <Users className="w-4 h-4 mr-2" />
@@ -126,7 +126,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </nav>
 
         {/* Main content */}
-        <main className="flex-1 bg-hadamard-white">
+        <main className="flex-1 bg-white">
           <div className="hadamard-container py-8">
             {children}
           </div>
