@@ -161,6 +161,10 @@
   .bg-hadamard-primary {
     background-color: hsl(var(--hadamard-primary));
   }
+
+  .border-hadamard-primary {
+    border-color: hsl(var(--hadamard-primary));
+  }
   
   .text-hadamard-secondary {
     color: hsl(var(--hadamard-secondary));
@@ -169,6 +173,10 @@
   .bg-hadamard-secondary {
     background-color: hsl(var(--hadamard-secondary));
   }
+
+  .border-hadamard-secondary {
+    border-color: hsl(var(--hadamard-secondary));
+  }
   
   .text-hadamard-white {
     color: hsl(var(--hadamard-white));
@@ -176,6 +184,10 @@
   
   .bg-hadamard-white {
     background-color: hsl(var(--hadamard-white));
+  }
+
+  .border-hadamard-white {
+    border-color: hsl(var(--hadamard-white));
   }
   
   .text-hadamard-gray {
@@ -186,6 +198,10 @@
     background-color: hsl(var(--hadamard-gray-light));
   }
 
+  .border-hadamard-gray-light {
+    border-color: hsl(var(--hadamard-gray-light));
+  }
+
   /* Service Colors */
   .text-hadamard-cours {
     color: hsl(var(--hadamard-cours));
@@ -193,6 +209,10 @@
   
   .bg-hadamard-cours {
     background-color: hsl(var(--hadamard-cours));
+  }
+
+  .border-hadamard-cours {
+    border-color: hsl(var(--hadamard-cours));
   }
   
   .text-hadamard-stages {
@@ -202,6 +222,10 @@
   .bg-hadamard-stages {
     background-color: hsl(var(--hadamard-stages));
   }
+
+  .border-hadamard-stages {
+    border-color: hsl(var(--hadamard-stages));
+  }
   
   .text-hadamard-ruche {
     color: hsl(var(--hadamard-ruche));
@@ -209,6 +233,10 @@
   
   .bg-hadamard-ruche {
     background-color: hsl(var(--hadamard-ruche));
+  }
+
+  .border-hadamard-ruche {
+    border-color: hsl(var(--hadamard-ruche));
   }
 
   /* Modern Shadows */
