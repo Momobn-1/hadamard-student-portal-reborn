@@ -9,19 +9,19 @@ const Dashboard = () => {
     <div className="space-y-8">
       {/* En-tête avec titre */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-hadamard-primary">Tableau de bord</h1>
+        <h1 className="text-3xl font-bold text-black">Tableau de bord</h1>
         <p className="text-hadamard-gray mt-2">Bienvenue sur votre portail élève Hadamard</p>
       </div>
 
       {/* Widget "Prochain cours" - Priorité absolue */}
-      <div className="widget-next-course border-l-4 border-hadamard-secondary">
+      <div className="widget-next-course accent-secondary">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-hadamard-secondary rounded-xl flex items-center justify-center">
-              <Video className="w-6 h-6 text-hadamard-primary" />
+            <div className="w-12 h-12 bg-hadamard-secondary rounded-xl flex items-center justify-center shadow-hadamard">
+              <Video className="w-6 h-6 text-black" />
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-hadamard-primary">Prochain cours</h3>
+              <h3 className="text-xl font-semibold text-black">Prochain cours</h3>
               <p className="text-hadamard-gray">Mathématiques - Aujourd'hui à 14h00</p>
               <div className="flex items-center space-x-4 mt-2 text-sm text-hadamard-gray">
                 <span className="flex items-center">
@@ -46,7 +46,7 @@ const Dashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-hadamard-gray">Cours cette semaine</p>
-                <p className="text-2xl font-bold text-hadamard-primary">4</p>
+                <p className="text-2xl font-bold text-black">4</p>
               </div>
               <BookOpen className="w-8 h-8 text-hadamard-primary" />
             </div>
@@ -58,7 +58,7 @@ const Dashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-hadamard-gray">Heures ce mois</p>
-                <p className="text-2xl font-bold text-hadamard-primary">18h</p>
+                <p className="text-2xl font-bold text-black">18h</p>
               </div>
               <Clock className="w-8 h-8 text-hadamard-stages" />
             </div>
@@ -70,7 +70,7 @@ const Dashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-hadamard-gray">Progression</p>
-                <p className="text-2xl font-bold text-hadamard-primary">+15%</p>
+                <p className="text-2xl font-bold text-black">+15%</p>
               </div>
               <TrendingUp className="w-8 h-8 text-hadamard-ruche" />
             </div>
@@ -81,11 +81,11 @@ const Dashboard = () => {
       {/* Planning de la semaine */}
       <Card className="mini-calendar">
         <CardHeader>
-          <CardTitle className="text-hadamard-primary flex items-center">
+          <CardTitle className="text-black flex items-center">
             <Calendar className="w-5 h-5 mr-2" />
             Planning de la semaine
           </CardTitle>
-          <CardDescription>Vos prochains cours</CardDescription>
+          <CardDescription className="text-hadamard-gray">Vos prochains cours</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
@@ -95,13 +95,13 @@ const Dashboard = () => {
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-12 bg-hadamard-primary rounded-full"></div>
                   <div>
-                    <p className="font-medium text-hadamard-primary">Mathématiques</p>
+                    <p className="font-medium text-black">Mathématiques</p>
                     <p className="text-sm text-hadamard-gray">Aujourd'hui 14h00-15h30</p>
                     <p className="text-xs text-hadamard-gray">Prof. Martin Dubois</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <span className="text-xs bg-blue-50 text-hadamard-primary px-2 py-1 rounded">Visio</span>
+                  <span className="text-xs bg-blue-50 text-hadamard-primary px-2 py-1 rounded shadow-sm">Visio</span>
                 </div>
               </div>
             </div>
@@ -112,14 +112,14 @@ const Dashboard = () => {
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-12 bg-hadamard-secondary rounded-full"></div>
                   <div>
-                    <p className="font-medium text-hadamard-primary">Stage Physique</p>
+                    <p className="font-medium text-black">Stage Physique</p>
                     <p className="text-sm text-hadamard-gray">Demain 9h00-12h00</p>
                     <p className="text-xs text-hadamard-gray">Salle A12</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
                   <MapPin className="w-4 h-4 text-hadamard-gray" />
-                  <span className="text-xs bg-yellow-50 text-hadamard-primary px-2 py-1 rounded">Présentiel</span>
+                  <span className="text-xs bg-yellow-50 text-black px-2 py-1 rounded shadow-sm">Présentiel</span>
                 </div>
               </div>
             </div>
@@ -130,13 +130,13 @@ const Dashboard = () => {
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-12 bg-hadamard-ruche rounded-full"></div>
                   <div>
-                    <p className="font-medium text-hadamard-primary">Anglais - Ruche</p>
+                    <p className="font-medium text-black">Anglais - Ruche</p>
                     <p className="text-sm text-hadamard-gray">Jeudi 16h00-17h00</p>
                     <p className="text-xs text-hadamard-gray">Groupe B2</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <span className="text-xs bg-emerald-50 text-hadamard-primary px-2 py-1 rounded">Ruche</span>
+                  <span className="text-xs bg-emerald-50 text-black px-2 py-1 rounded shadow-sm">Ruche</span>
                 </div>
               </div>
             </div>
@@ -154,8 +154,8 @@ const Dashboard = () => {
       {/* Actions rapides */}
       <Card className="hadamard-card">
         <CardHeader>
-          <CardTitle className="text-hadamard-primary">Actions rapides</CardTitle>
-          <CardDescription>Accès direct aux fonctionnalités principales</CardDescription>
+          <CardTitle className="text-black">Actions rapides</CardTitle>
+          <CardDescription className="text-hadamard-gray">Accès direct aux fonctionnalités principales</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
