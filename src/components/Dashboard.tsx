@@ -1,261 +1,182 @@
 
 import React from 'react';
-import { Calendar, Video, MapPin, Home as HomeIcon, Clock, TrendingUp, Bell, BookOpen, CreditCard, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, BookOpen, TrendingUp, Video, MapPin, Phone } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
-  const prochainsCours = [
-    {
-      id: 1,
-      matiere: 'Mathématiques',
-      professeur: 'Dr. Sophie Laurent',
-      date: '2024-06-11',
-      heure: '14:00',
-      duree: '2h',
-      modalite: 'visio',
-      type: 'cours',
-      chapitre: 'Fonctions logarithmiques',
-      minutesRestantes: 25
-    },
-    {
-      id: 2,
-      matiere: 'Physique',
-      professeur: 'M. Pierre Dubois',
-      date: '2024-06-12',
-      heure: '16:30',
-      duree: '1h30',
-      modalite: 'presentiel',
-      salle: 'Salle 204',
-      type: 'cours',
-      chapitre: 'Électromagnétisme'
-    },
-    {
-      id: 3,
-      matiere: 'Stage Maths Sup',
-      professeur: 'Équipe Hadamard',
-      date: '2024-06-15',
-      heure: '09:00',
-      duree: '4h',
-      modalite: 'presentiel',
-      type: 'stage',
-      chapitre: 'Révisions intensives'
-    }
-  ];
-
-  const stats = {
-    coursDisponibles: 24,
-    creditImpot: 2850,
-    prochainCours: '11 juin à 14h00',
-    totalSeances: 156
-  };
-
-  const prochainCours = prochainsCours[0];
-  const peutRejoindre = prochainCours?.minutesRestantes && prochainCours.minutesRestantes < 30;
-
   return (
     <div className="space-y-8">
-      {/* Header moderne */}
-      <div className="flex flex-col space-y-3">
-        <h1 className="text-4xl font-bold text-hadamard-primary">Bonjour Alexandre !</h1>
-        <p className="text-hadamard-gray text-lg">Voici un aperçu de vos activités récentes et à venir.</p>
+      {/* En-tête avec titre */}
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-hadamard-primary">Tableau de bord</h1>
+        <p className="text-hadamard-gray mt-2">Bienvenue sur votre portail élève Hadamard</p>
       </div>
 
-      {/* Widget "Prochain cours" - Phase 1 priorité */}
-      {peutRejoindre && (
-        <Card className="hadamard-card bg-gradient-to-r from-hadamard-secondary/20 to-hadamard-secondary/10 border-hadamard-secondary">
-          <CardContent className="pt-6">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <div className="w-16 h-16 bg-hadamard-secondary rounded-xl flex items-center justify-center">
-                  <Video className="w-8 h-8 text-hadamard-primary" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-hadamard-primary">Votre cours commence bientôt</h3>
-                  <p className="text-hadamard-gray">{prochainCours.matiere} avec {prochainCours.professeur}</p>
-                  <p className="text-sm text-hadamard-primary font-semibold">Dans {prochainCours.minutesRestantes} minutes</p>
-                </div>
-              </div>
-              <Button className="btn-hadamard-primary text-lg px-8 py-4 h-auto">
-                <Video className="w-5 h-5 mr-2" />
-                Rejoindre maintenant
-              </Button>
+      {/* Widget "Prochain cours" - Priorité absolue */}
+      <div className="widget-next-course border-l-4 border-hadamard-secondary">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 bg-hadamard-secondary rounded-xl flex items-center justify-center">
+              <Video className="w-6 h-6 text-hadamard-primary" />
             </div>
-          </CardContent>
-        </Card>
-      )}
-
-      {/* Stats Cards modernes */}
-      <div className="hadamard-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-        <Card className="hadamard-card bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-semibold text-hadamard-primary">Prochain cours</CardTitle>
-            <Clock className="h-5 w-5 text-hadamard-primary" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-hadamard-primary">{stats.prochainCours}</div>
-            <p className="text-xs text-hadamard-gray mt-1">Mathématiques - Dr. Sophie Laurent</p>
-          </CardContent>
-        </Card>
-
-        <Card className="hadamard-card bg-gradient-to-br from-yellow-50 to-yellow-100 border-yellow-200">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-semibold text-hadamard-primary">Crédits disponibles</CardTitle>
-            <BookOpen className="h-5 w-5 text-hadamard-primary" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-hadamard-primary">{stats.coursDisponibles}h</div>
-            <p className="text-xs text-hadamard-gray mt-1">Cours particuliers</p>
-          </CardContent>
-        </Card>
-
-        <Card className="hadamard-card bg-gradient-to-br from-green-50 to-green-100 border-green-200">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-semibold text-hadamard-primary">Crédit d'impôt</CardTitle>
-            <TrendingUp className="h-5 w-5 text-hadamard-primary" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-hadamard-primary">{stats.creditImpot}€</div>
-            <p className="text-xs text-hadamard-gray mt-1">Économies potentielles</p>
-          </CardContent>
-        </Card>
-
-        <Card className="hadamard-card bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-semibold text-hadamard-primary">Séances effectuées</CardTitle>
-            <Calendar className="h-5 w-5 text-hadamard-primary" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-hadamard-primary">{stats.totalSeances}</div>
-            <p className="text-xs text-hadamard-gray mt-1">Depuis le début</p>
-          </CardContent>
-        </Card>
-      </div>
-
-      <div className="hadamard-grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Planning de la semaine - coloré par service */}
-        <Card className="hadamard-card lg:col-span-2">
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <div>
-                <CardTitle className="flex items-center space-x-2 text-hadamard-primary">
-                  <Calendar className="w-5 h-5" />
-                  <span>Planning de la semaine</span>
-                </CardTitle>
-                <CardDescription>Vos prochaines séances avec couleurs par service</CardDescription>
+            <div>
+              <h3 className="text-xl font-semibold text-hadamard-primary">Prochain cours</h3>
+              <p className="text-hadamard-gray">Mathématiques - Aujourd'hui à 14h00</p>
+              <div className="flex items-center space-x-4 mt-2 text-sm text-hadamard-gray">
+                <span className="flex items-center">
+                  <Clock className="w-4 h-4 mr-1" />
+                  Dans 2h 15min
+                </span>
+                <span>Prof. Martin Dubois</span>
               </div>
-              <Link to="/planning">
-                <Button variant="outline" size="sm" className="btn-hadamard-secondary">
-                  Voir tout
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
             </div>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {prochainsCours.map((cours) => (
-              <div key={cours.id} className="hadamard-card p-4 hover:scale-[1.02] transition-transform duration-200">
-                <div className="flex items-center space-x-4">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white font-semibold ${
-                    cours.type === 'cours' ? 'bg-hadamard-cours' : 
-                    cours.type === 'stage' ? 'bg-hadamard-stages text-hadamard-primary' : 'bg-hadamard-ruche'
-                  }`}>
-                    {cours.matiere.charAt(0)}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center space-x-2 mb-1">
-                      <h3 className="font-semibold text-hadamard-primary">{cours.matiere}</h3>
-                      <Badge variant="secondary" className="text-xs bg-hadamard-gray-light">{cours.duree}</Badge>
-                      {cours.type === 'stage' && (
-                        <Badge className="bg-hadamard-stages text-hadamard-primary text-xs">Stage</Badge>
-                      )}
-                    </div>
-                    <p className="text-sm text-hadamard-gray">{cours.professeur}</p>
-                    <p className="text-sm text-hadamard-gray">{cours.chapitre}</p>
-                    <div className="flex items-center space-x-4 text-xs text-hadamard-gray mt-1">
-                      <span>{new Date(cours.date).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' })} à {cours.heure}</span>
-                      <div className="flex items-center space-x-1">
-                        {cours.modalite === 'visio' && <Video className="w-3 h-3" />}
-                        {cours.modalite === 'presentiel' && <MapPin className="w-3 h-3" />}
-                        {cours.modalite === 'domicile' && <HomeIcon className="w-3 h-3" />}
-                        <span>
-                          {cours.modalite === 'visio' && 'Visioconférence'}
-                          {cours.modalite === 'presentiel' && (cours.salle || 'Présentiel')}
-                          {cours.modalite === 'domicile' && 'À domicile'}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  {cours.modalite === 'visio' && (
-                    <Button className="btn-hadamard-primary">
-                      <Video className="w-4 h-4 mr-2" />
-                      Rejoindre
-                    </Button>
-                  )}
-                </div>
-              </div>
-            ))}
-          </CardContent>
-        </Card>
-
-        {/* Actions rapides et notifications */}
-        <div className="space-y-6">
-          <Card className="hadamard-card">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2 text-hadamard-primary">
-                <Bell className="w-5 h-5" />
-                <span>Notifications</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="hadamard-card p-3 bg-gradient-to-r from-blue-50 to-blue-100 border-blue-200">
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-hadamard-primary rounded-full mt-2"></div>
-                  <div>
-                    <p className="text-sm font-medium text-hadamard-primary">Nouveau stage disponible</p>
-                    <p className="text-xs text-hadamard-gray">Préparation Maths Sup - Juillet 2024</p>
-                  </div>
-                </div>
-              </div>
-              <div className="hadamard-card p-3 bg-gradient-to-r from-green-50 to-green-100 border-green-200">
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                  <div>
-                    <p className="text-sm font-medium text-hadamard-primary">Crédit d'impôt approuvé</p>
-                    <p className="text-xs text-hadamard-gray">Votre demande de 1 200€ est validée</p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="hadamard-card">
-            <CardHeader>
-              <CardTitle className="text-hadamard-primary">Actions rapides</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <Link to="/credit-impot" className="block">
-                <Button className="w-full btn-hadamard-primary justify-start">
-                  <CreditCard className="w-4 h-4 mr-2" />
-                  Demander une avance
-                </Button>
-              </Link>
-              <Link to="/planning" className="block">
-                <Button className="w-full btn-hadamard-secondary justify-start">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  Réserver un cours
-                </Button>
-              </Link>
-              <Button className="w-full btn-hadamard-secondary justify-start">
-                <Bell className="w-4 h-4 mr-2" />
-                Signaler un problème
-              </Button>
-            </CardContent>
-          </Card>
+          </div>
+          <Button className="btn-hadamard-primary">
+            <Video className="w-4 h-4 mr-2" />
+            Rejoindre maintenant
+          </Button>
         </div>
       </div>
+
+      {/* Statistiques rapides */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Card className="widget-stats accent-primary">
+          <CardContent className="p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-hadamard-gray">Cours cette semaine</p>
+                <p className="text-2xl font-bold text-hadamard-primary">4</p>
+              </div>
+              <BookOpen className="w-8 h-8 text-hadamard-primary" />
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="widget-stats accent-secondary">
+          <CardContent className="p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-hadamard-gray">Heures ce mois</p>
+                <p className="text-2xl font-bold text-hadamard-primary">18h</p>
+              </div>
+              <Clock className="w-8 h-8 text-hadamard-stages" />
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="widget-stats accent-ruche">
+          <CardContent className="p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-hadamard-gray">Progression</p>
+                <p className="text-2xl font-bold text-hadamard-primary">+15%</p>
+              </div>
+              <TrendingUp className="w-8 h-8 text-hadamard-ruche" />
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Planning de la semaine */}
+      <Card className="mini-calendar">
+        <CardHeader>
+          <CardTitle className="text-hadamard-primary flex items-center">
+            <Calendar className="w-5 h-5 mr-2" />
+            Planning de la semaine
+          </CardTitle>
+          <CardDescription>Vos prochains cours</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-3">
+            {/* Cours 1 */}
+            <div className="course-item cours-card">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-12 bg-hadamard-primary rounded-full"></div>
+                  <div>
+                    <p className="font-medium text-hadamard-primary">Mathématiques</p>
+                    <p className="text-sm text-hadamard-gray">Aujourd'hui 14h00-15h30</p>
+                    <p className="text-xs text-hadamard-gray">Prof. Martin Dubois</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span className="text-xs bg-blue-50 text-hadamard-primary px-2 py-1 rounded">Visio</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Cours 2 */}
+            <div className="course-item stages-card">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-12 bg-hadamard-secondary rounded-full"></div>
+                  <div>
+                    <p className="font-medium text-hadamard-primary">Stage Physique</p>
+                    <p className="text-sm text-hadamard-gray">Demain 9h00-12h00</p>
+                    <p className="text-xs text-hadamard-gray">Salle A12</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <MapPin className="w-4 h-4 text-hadamard-gray" />
+                  <span className="text-xs bg-yellow-50 text-hadamard-primary px-2 py-1 rounded">Présentiel</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Cours 3 */}
+            <div className="course-item ruche-card">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-12 bg-hadamard-ruche rounded-full"></div>
+                  <div>
+                    <p className="font-medium text-hadamard-primary">Anglais - Ruche</p>
+                    <p className="text-sm text-hadamard-gray">Jeudi 16h00-17h00</p>
+                    <p className="text-xs text-hadamard-gray">Groupe B2</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span className="text-xs bg-emerald-50 text-hadamard-primary px-2 py-1 rounded">Ruche</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-4 pt-4 border-t border-gray-100">
+            <Button variant="outline" className="w-full btn-hadamard-secondary">
+              <Calendar className="w-4 h-4 mr-2" />
+              Voir le planning complet
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Actions rapides */}
+      <Card className="hadamard-card">
+        <CardHeader>
+          <CardTitle className="text-hadamard-primary">Actions rapides</CardTitle>
+          <CardDescription>Accès direct aux fonctionnalités principales</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Button className="btn-hadamard-primary h-auto p-4 justify-start">
+              <BookOpen className="w-5 h-5 mr-3" />
+              <div className="text-left">
+                <div className="font-medium">Demander un cours</div>
+                <div className="text-xs opacity-75">Nouveau cours particulier</div>
+              </div>
+            </Button>
+
+            <Button variant="outline" className="btn-hadamard-secondary h-auto p-4 justify-start">
+              <Phone className="w-5 h-5 mr-3" />
+              <div className="text-left">
+                <div className="font-medium">Contact</div>
+                <div className="text-xs opacity-75">01 47 89 36 36</div>
+              </div>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };

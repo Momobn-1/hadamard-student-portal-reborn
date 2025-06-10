@@ -99,46 +99,46 @@
 
 /* Hadamard Modern Components */
 @layer components {
-  /* Modern Cards */
+  /* Modern Cards - Fond blanc avec bordures très subtiles */
   .hadamard-card {
-    @apply bg-white rounded-xl border border-gray-200 transition-all duration-200;
-    box-shadow: var(--shadow-card);
+    @apply bg-white rounded-xl border border-gray-100 transition-all duration-200;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
   }
   
   .hadamard-card:hover {
-    box-shadow: var(--shadow-hover);
-    @apply -translate-y-1;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+    @apply -translate-y-1 border-gray-200;
   }
 
-  /* Button Hierarchy */
+  /* Button Hierarchy - Couleurs Hadamard */
   .btn-hadamard-primary {
     @apply bg-hadamard-secondary text-hadamard-primary font-semibold px-6 py-3 rounded-lg;
-    box-shadow: var(--shadow-modern);
-    @apply hover:bg-yellow-300 active:bg-yellow-400 transition-all duration-200;
+    box-shadow: 0 2px 4px 0 rgba(255, 227, 79, 0.2);
+    @apply hover:bg-yellow-400 active:bg-yellow-500 transition-all duration-200;
   }
   
   .btn-hadamard-secondary {
     @apply bg-white border-2 border-hadamard-primary text-hadamard-primary font-semibold px-6 py-3 rounded-lg;
-    @apply hover:bg-blue-50 active:bg-blue-100 transition-all duration-200;
+    @apply hover:bg-gray-50 active:bg-gray-100 transition-all duration-200;
   }
   
   .btn-hadamard-urgent {
     @apply bg-hadamard-primary text-white font-semibold px-6 py-3 rounded-lg;
-    box-shadow: var(--shadow-modern);
-    @apply hover:bg-blue-800 active:bg-blue-900 transition-all duration-200;
+    box-shadow: 0 2px 4px 0 rgba(36, 30, 92, 0.2);
+    @apply hover:bg-blue-900 active:bg-blue-950 transition-all duration-200;
   }
 
-  /* Service Type Cards */
+  /* Service Type Cards - Couleurs spécifiques mais fond blanc dominant */
   .cours-card {
-    @apply bg-hadamard-primary text-white;
+    @apply bg-white border-l-4 border-hadamard-primary text-hadamard-primary;
   }
   
   .stages-card {
-    @apply bg-hadamard-secondary text-hadamard-primary;
+    @apply bg-white border-l-4 border-hadamard-secondary text-hadamard-primary;
   }
   
   .ruche-card {
-    @apply bg-hadamard-ruche text-white;
+    @apply bg-white border-l-4 border-hadamard-ruche text-hadamard-primary;
   }
 
   /* Modern Layout */
@@ -148,6 +148,24 @@
   
   .hadamard-grid {
     @apply grid gap-6;
+  }
+
+  /* Widget styles épurés */
+  .widget-next-course {
+    @apply bg-white border border-gray-200 rounded-xl p-6;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .widget-stats {
+    @apply bg-white border border-gray-100 rounded-lg p-4;
+  }
+
+  .mini-calendar {
+    @apply bg-white border border-gray-100 rounded-lg;
+  }
+
+  .course-item {
+    @apply bg-white border border-gray-100 rounded-lg p-3 hover:border-gray-200 transition-all duration-200;
   }
 }
 
@@ -257,4 +275,17 @@
   .spacing-hadamard-sm { @apply p-4; }
   .spacing-hadamard-md { @apply p-6; }
   .spacing-hadamard-lg { @apply p-8; }
+
+  /* Accents de couleur subtils */
+  .accent-primary {
+    @apply border-l-4 border-hadamard-primary;
+  }
+
+  .accent-secondary {
+    @apply border-l-4 border-hadamard-secondary;
+  }
+
+  .accent-ruche {
+    @apply border-l-4 border-hadamard-ruche;
+  }
 }
